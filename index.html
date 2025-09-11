@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GAB – Global Authentication Blockchain</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Roboto&display=swap" rel="stylesheet">
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+</head>
+<body>
+  <!-- Hero Section -->
+  <header class="hero">
+    <h1 class="animate__animated animate__fadeInDown">🔗 GAB</h1>
+    <p class="animate__animated animate__fadeInUp">Global Authentication Blockchain</p>
+    <button onclick="scrollToUpload()" class="cta-btn">Try the Demo</button>
+  </header>
+
+  <!-- Upload Section -->
+  <main class="container">
+    <h2>Upload Your File</h2>
+    <div class="upload-box" id="upload-box" onclick="document.getElementById('fileInput').click()">
+      <p>📂 Drag & Drop or Click to Upload</p>
+      <input type="file" id="fileInput" hidden />
+    </div>
+    <button id="uploadBtn" class="cta-btn">Generate Proof</button>
+
+    <!-- Result Section -->
+    <div id="result" class="result hidden">
+      <h3>Verification Result</h3>
+      <p><strong>File Hash:</strong> <span id="fileHash"></span></p>
+      <p><strong>Transaction:</strong> 
+        <a id="txLink" href="#" target="_blank">View on Polygonscan</a>
+      </p>
+      <div id="qrCodeContainer"></div>
+    </div>
+  </main>
+
+  <!-- Value Proposition -->
+  <section class="features">
+    <div class="feature-card">🔒 Immutable Proof</div>
+    <div class="feature-card">🌍 Global Trust</div>
+    <div class="feature-card">⚡ Fast & Seamless</div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="team">
+    <h2>Our Team</h2>
+    <p>Shi Jiaxun, Tanish Ambati, Brillien Kristiawan</p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 GAB – Global Authentication Blockchain | Hackathon Demo</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
