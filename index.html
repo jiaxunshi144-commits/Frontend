@@ -1,84 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GAB - Blockchain File Verification</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #2c3e50, #3498db);
-      color: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-    }
-    .container {
-      background: #34495e;
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-      width: 450px;
-      text-align: center;
-    }
-    h1 {
-      margin-bottom: 20px;
-    }
-    input[type="file"] {
-      margin: 15px 0;
-    }
-    button {
-      background: #1abc9c;
-      color: white;
-      border: none;
-      padding: 12px 20px;
-      cursor: pointer;
-      border-radius: 5px;
-      font-size: 16px;
-    }
-    button:hover {
-      background: #16a085;
-    }
-    .card {
-      background: #2c3e50;
-      padding: 20px;
-      margin-top: 20px;
-      border-radius: 10px;
-      text-align: left;
-    }
-    .card.error {
-      background: #e74c3c;
-    }
-    a {
-      color: #1abc9c;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    img {
-      margin-top: 15px;
-      max-width: 200px;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GAB: Global Authentication Blockchain</title>
+
+  <!-- CSS from Template -->
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/fontawesome.css">
+  <link rel="stylesheet" href="assets/css/templatemo-space-dynamic.css">
+  <link rel="stylesheet" href="assets/css/animated.css">
+  <link rel="stylesheet" href="assets/css/owl.css">
+
+  <!-- Optional Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
-  <div class="container">
-    <h1>GAB File Verification</h1>
-    <form id="uploadForm">
-      <input type="file" id="fileInput" name="file" required />
-      <br>
-      <button type="submit">Upload & Verify</button>
-    </form>
-    <div id="result"></div>
+
+  <!-- ***** Preloader Start ***** -->
+  <div id="js-preloader" class="js-preloader">
+    <div class="preloader-inner">
+      <span class="dot"></span>
+      <div class="dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
   </div>
+  <!-- ***** Preloader End ***** -->
+
+  <!-- ***** Header Start ***** -->
+  <header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <nav class="main-nav">
+            <!-- ***** Logo Start ***** -->
+            <a href="index.html" class="logo">
+              <h4>🌐 GAB <span>Project</span></h4>
+            </a>
+            <!-- ***** Logo End ***** -->
+
+            <!-- ***** Menu Start ***** -->
+            <ul class="nav">
+              <li><a href="#background" class="active">Background</a></li>
+              <li><a href="#description">Description</a></li>
+              <li><a href="#demo">Live Demo</a></li>
+              <li><a href="#team">Team</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a class='menu-trigger'>
+              <span>Menu</span>
+            </a>
+            <!-- ***** Menu End ***** -->
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- ***** Header End ***** -->
+
+  <!-- ***** Main Banner Area Start ***** -->
+  <div class="main-banner wow fadeIn" id="top" data-wow-duration="1s" data-wow-delay="0.5s">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 align-self-center">
+          <div class="header-text">
+            <h2>🌐 Global Authentication Blockchain</h2>
+            <p>Securing data authenticity through blockchain-powered fingerprints.</p>
+            <a href="#demo" class="btn btn-primary">🚀 Try Live Demo</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ***** Main Banner Area End ***** -->
+
+  <!-- ***** Background Section ***** -->
+  <section id="background" class="section wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s">
+    <div class="container">
+      <div class="section-heading">
+        <h4>🔮 Background</h4>
+        <p>[Add Background Description Here]</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ***** Description Section ***** -->
+  <section id="description" class="section wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s">
+    <div class="container">
+      <div class="section-heading">
+        <h4>📖 Description</h4>
+        <p>[Add Detailed Features Here]</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ***** Live Demo Section ***** -->
+  <section id="demo" class="section wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.4s">
+    <div class="container">
+      <div class="section-heading">
+        <h4>⚡ Live Demo</h4>
+        <p>Upload a file to generate its unique fingerprint and store on-chain.</p>
+      </div>
+      <form id="uploadForm">
+        <div class="mb-3">
+          <input type="file" id="fileInput" name="file" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-primary">🚀 Upload & Register</button>
+      </form>
+      <div id="result" class="alert mt-3" style="display:none;"></div>
+    </div>
+  </section>
+
+  <!-- ***** Team Section ***** -->
+  <section id="team" class="section wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.5s">
+    <div class="container">
+      <div class="section-heading">
+        <h4>👥 Meet the Team</h4>
+      </div>
+      <div class="row">
+        <div class="col-lg-4">
+          <h5>Shi Jiaxun</h5>
+          <p>Blockchain & Backend</p>
+        </div>
+        <div class="col-lg-4">
+          <h5>Tanish Ambati</h5>
+          <p>Smart Contracts</p>
+        </div>
+        <div class="col-lg-4">
+          <h5>Brillien Kristiawan</h5>
+          <p>Frontend & UX</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ***** Contact Section ***** -->
+  <section id="contact" class="section wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.6s">
+    <div class="container">
+      <div class="section-heading">
+        <h4>📩 Contact</h4>
+        <p>[Add your contact info or links here]</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ***** Footer ***** -->
+  <footer>
+    <div class="container">
+      <p>© 2025 GAB Project. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/bootstrap.min.js"></script>
+  <script src="assets/js/owl-carousel.js"></script>
+  <script src="assets/js/animation.js"></script>
+  <script src="assets/js/imagesloaded.js"></script>
+  <script src="assets/js/custom.js"></script>
 
   <script>
-    document.getElementById("uploadForm").addEventListener("submit", async function(event) {
-      event.preventDefault();
-
+    // File Upload Logic
+    document.getElementById("uploadForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
       const fileInput = document.getElementById("fileInput");
       if (!fileInput.files.length) {
         alert("Please select a file first.");
@@ -88,44 +177,29 @@
       const formData = new FormData();
       formData.append("file", fileInput.files[0]);
 
-      try {
-        const response = await fetch("https://backend-2h3r.onrender.com/upload", {
-          method: "POST",
-          body: formData
-        });
+      const response = await fetch("https://backend-2h3r.onrender.com/upload", {
+        method: "POST",
+        body: formData
+      });
 
-        const result = await response.json();
-        const resultDiv = document.getElementById("result");
+      const resultBox = document.getElementById("result");
+      const data = await response.json();
+      resultBox.style.display = "block";
 
-        if (result.success) {
-          resultDiv.innerHTML = `
-            <div class="card">
-              <h2>Verification Result</h2>
-              <p><strong>File Hash:</strong> ${result.data.fileHash}</p>
-              <p><strong>Transaction:</strong> <a href="${result.data.transactionLink}" target="_blank">View on Polygonscan</a></p>
-              <img src="${result.data.qrCode}" alt="QR Code"/>
-            </div>
-          `;
-        } else {
-          resultDiv.innerHTML = `
-            <div class="card error">
-              <h2>Verification Failed</h2>
-              <p>${result.message}</p>
-              <p><strong>File Hash:</strong> ${result.data?.fileHash || "N/A"}</p>
-            </div>
-          `;
-        }
-      } catch (err) {
-        console.error(err);
-        document.getElementById("result").innerHTML = `
-          <div class="card error">
-            <h2>Server Error</h2>
-            <p>Could not connect to backend. Please try again later.</p>
-          </div>
+      if (data.success) {
+        resultBox.className = "alert alert-success";
+        resultBox.innerHTML = `
+          <h5>✅ Verification Success</h5>
+          <p><strong>File Hash:</strong> ${data.data.fileHash.slice(0, 10)}...${data.data.fileHash.slice(-10)}</p>
+          <p><strong>Transaction:</strong> <a href="${data.data.transactionLink}" target="_blank">View on Polygonscan</a></p>
+          <img src="${data.data.qrCode}" alt="QR Code" style="margin-top:10px;max-width:200px;">
         `;
+      } else {
+        resultBox.className = "alert alert-danger";
+        resultBox.innerHTML = `<h5>❌ ${data.message}</h5>`;
       }
     });
   </script>
 </body>
-</html>
 
+</html>
