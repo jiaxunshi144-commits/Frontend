@@ -10,6 +10,7 @@ body {
   background: linear-gradient(135deg, #0f172a, #3b0764);
   color: #fff;
   line-height: 1.6;
+  scroll-behavior: smooth;
 }
 
 /* Navbar */
@@ -18,13 +19,15 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background: rgba(0, 0, 0, 0.4);
-  position: sticky;
+  background: rgba(0, 0, 0, 0.6);
+  position: fixed;
   top: 0;
+  width: 100%;
+  z-index: 1000;
 }
 
 .navbar .logo {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-weight: bold;
   color: #fff;
 }
@@ -38,6 +41,7 @@ body {
 .nav-links a {
   color: #fff;
   text-decoration: none;
+  font-size: 1rem;
   transition: color 0.3s;
 }
 
@@ -45,35 +49,47 @@ body {
   color: #c084fc;
 }
 
+/* Fullscreen sections */
+.section {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 2rem;
+  text-align: center;
+  position: relative;
+}
+
 /* Hero */
 .hero {
-  text-align: center;
-  padding: 6rem 2rem;
   background: url("assets/media/bg.jpg") center/cover no-repeat;
 }
 
 .hero h1 {
-  font-size: 3rem;
+  font-size: 4rem;
   margin-bottom: 1rem;
 }
 
 .hero p {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   color: #e5e7eb;
 }
 
-/* Sections */
-.section {
-  padding: 4rem 2rem;
-  max-width: 900px;
-  margin: auto;
-  text-align: center;
+/* Section Titles */
+.section h2 {
+  font-size: 2.8rem;
+  margin-bottom: 1.5rem;
+  color: #c084fc;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
-.section h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  color: #c084fc;
+.section p {
+  font-size: 1.3rem;
+  max-width: 800px;
+  margin: auto;
+  line-height: 1.8;
 }
 
 /* Demo */
@@ -86,17 +102,19 @@ body {
 }
 
 .demo button {
-  padding: 0.5rem 1rem;
-  background: #7c3aed;
-  border: none;
+  padding: 0.8rem 1.5rem;
+  background: transparent;
+  border: 2px solid #7c3aed;
   border-radius: 6px;
   color: #fff;
   cursor: pointer;
-  transition: background 0.3s;
+  font-size: 1.1rem;
+  transition: all 0.3s;
 }
 
 .demo button:hover {
-  background: #a855f7;
+  background: #7c3aed;
+  box-shadow: 0 0 10px #a855f7, 0 0 20px #9333ea;
 }
 
 .result-box {
@@ -109,24 +127,25 @@ body {
 /* Team */
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 2rem;
   margin-top: 2rem;
 }
 
 .team-card {
-  background: rgba(255, 255, 255, 0.1);
-  padding: 1rem;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 1.5rem;
   border-radius: 12px;
-  transition: transform 0.3s;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .team-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-8px);
+  box-shadow: 0 0 15px rgba(192, 132, 252, 0.6);
 }
 
 .team-card img {
-  width: 80px;
+  width: 100px;
   border-radius: 50%;
   margin-bottom: 1rem;
 }
@@ -136,5 +155,4 @@ footer {
   text-align: center;
   padding: 2rem;
   background: rgba(0, 0, 0, 0.6);
-  margin-top: 2rem;
 }

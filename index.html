@@ -7,6 +7,9 @@
   <meta name="description" content="GAB | Global Authentication Blockchain - File authenticity & provenance powered by blockchain.">
   <title>GAB | Global Authentication Blockchain</title>
   <link rel="stylesheet" href="style.css">
+
+  <!-- AOS 动画库 -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 
 <body>
@@ -25,7 +28,7 @@
   </header>
 
   <!-- Hero -->
-  <section class="hero">
+  <section class="hero section" data-aos="fade-up">
     <div class="hero-content">
       <h1>Trust Every File. Trace Every Hash.</h1>
       <p>Blockchain-powered authenticity & provenance system for a transparent digital world.</p>
@@ -33,7 +36,7 @@
   </section>
 
   <!-- Background -->
-  <section class="section">
+  <section class="section" data-aos="fade-up">
     <h2>Background</h2>
     <p>
       GAB (Global Authentication Blockchain) addresses challenges like greenwashing, fake sustainability claims,
@@ -42,7 +45,7 @@
   </section>
 
   <!-- Objective -->
-  <section class="section">
+  <section class="section" data-aos="fade-up">
     <h2>Objective</h2>
     <p>
       To leverage blockchain for secure and scalable verification, allowing anyone to trace and prove the authenticity
@@ -51,7 +54,7 @@
   </section>
 
   <!-- Demo -->
-  <section class="section demo">
+  <section class="section demo" data-aos="fade-up">
     <h2>Demo</h2>
     <form id="uploadForm">
       <input type="file" id="fileInput" required>
@@ -61,20 +64,20 @@
   </section>
 
   <!-- Team -->
-  <section class="section team">
+  <section class="section team" data-aos="fade-up">
     <h2>Team</h2>
     <div class="team-grid">
-      <div class="team-card">
+      <div class="team-card" data-aos="zoom-in" data-aos-delay="200">
         <img src="assets/media/avatar1.png" alt="Member 1">
         <h3>Member 1</h3>
         <p>Blockchain Engineer</p>
       </div>
-      <div class="team-card">
+      <div class="team-card" data-aos="zoom-in" data-aos-delay="400">
         <img src="assets/media/avatar2.png" alt="Member 2">
         <h3>Member 2</h3>
         <p>Frontend Developer</p>
       </div>
-      <div class="team-card">
+      <div class="team-card" data-aos="zoom-in" data-aos-delay="600">
         <img src="assets/media/avatar3.png" alt="Member 3">
         <h3>Member 3</h3>
         <p>Research Lead</p>
@@ -83,7 +86,7 @@
   </section>
 
   <!-- Contact -->
-  <footer>
+  <footer class="section" data-aos="fade-up">
     <p>© 2025 GAB Project | Contact: info@gab.org</p>
   </footer>
 
@@ -117,6 +120,15 @@
       } catch (err) {
         resultBox.innerHTML = "❌ Upload failed. Please try again.";
       }
+    });
+  </script>
+
+  <!-- AOS 动画库 -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1200,
+      once: true
     });
   </script>
 </body>
