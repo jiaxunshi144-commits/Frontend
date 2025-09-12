@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* Reset */
 * {
   margin: 0;
@@ -156,3 +157,206 @@ footer {
   padding: 2rem;
   background: rgba(0, 0, 0, 0.6);
 }
+=======
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", sans-serif;
+  background: linear-gradient(135deg, #0f172a, #3b0764);
+  color: #fff;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.navbar .logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #c084fc;
+}
+
+/* Fullscreen sections */
+.section {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 2rem;
+  text-align: center;
+  position: relative;
+}
+
+/* Hero */
+.hero {
+  background: url("assets/media/bg.jpg") center/cover no-repeat;
+}
+
+.hero h1 {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.4rem;
+  color: #e5e7eb;
+}
+
+/* Section Titles */
+.section h2 {
+  font-size: 2.8rem;
+  margin-bottom: 1.5rem;
+  color: #c084fc;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.section p {
+  font-size: 1.3rem;
+  max-width: 800px;
+  margin: auto;
+  line-height: 1.8;
+}
+
+/* Demo */
+.demo form {
+  margin-bottom: 2rem;
+}
+
+.demo input[type="file"] {
+  margin-right: 1rem;
+}
+
+.demo button {
+  padding: 0.8rem 1.5rem;
+  background: transparent;
+  border: 2px solid #7c3aed;
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: all 0.3s;
+}
+
+.demo button:hover {
+  background: #7c3aed;
+  box-shadow: 0 0 10px #a855f7, 0 0 20px #9333ea;
+}
+
+.result-box {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+}
+
+/* Team */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.team-card {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 1.5rem;
+  border-radius: 12px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.team-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 15px rgba(192, 132, 252, 0.6);
+}
+
+.team-card img {
+  width: 100px;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.6);
+}
+/* 文本框设计 */
+.text-box {
+  background: rgba(255, 255, 255, 0.08);   /* 半透明背景 */
+  backdrop-filter: blur(8px);              /* 毛玻璃效果 */
+  border-radius: 16px;                     /* 圆角 */
+  padding: 2rem;                           /* 内边距 */
+  margin-top: 1rem;                        /* 标题和内容之间的间距 */
+  border: 1px solid rgba(192, 132, 252, 0.4); /* 渐变色系边框 */
+  box-shadow: 0 0 25px rgba(192, 132, 252, 0.25); /* 发光阴影 */
+  max-width: 800px;
+  transition: all 0.3s ease-in-out;
+}
+
+/* hover 时更有层次感 */
+.text-box:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 40px rgba(236, 72, 153, 0.4);
+}
+
+/* 背景装饰元素 */
+.section::before {
+  content: "";
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  background: url("assets/media/gear.svg") no-repeat center/contain;
+  opacity: 0.08;
+  top: 15%;
+  left: 5%;
+  z-index: -1;
+}
+
+.section::after {
+  content: "";
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  background: url("assets/media/blockchain.svg") no-repeat center/contain;
+  opacity: 0.08;
+  bottom: 10%;
+  right: 10%;
+  z-index: -1;
+}
+>>>>>>> 124cb14 (Add assets/media folder with design elements)
