@@ -2,107 +2,52 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>MVP2/4 - Governance & Attestation</title>
-  <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.min.js"></script>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 20px;
-      background: #f9f9f9;
-    }
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: #004d99;
-      color: white;
-      padding: 12px 20px;
-      border-radius: 8px;
-      margin-bottom: 20px;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 20px;
-    }
-    header nav a {
-      text-decoration: none;
-      color: #fff;
-      background: #00cc66;
-      padding: 8px 14px;
-      border-radius: 6px;
-      font-weight: bold;
-    }
-    header nav a:hover {
-      background: #00994d;
-    }
-    section {
-      background: white;
-      padding: 20px;
-      margin-bottom: 20px;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-    button {
-      margin-top: 10px;
-      margin-right: 10px;
-      padding: 6px 12px;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      background: #004d99;
-      color: white;
-    }
-    button:hover {
-      background: #0066cc;
-    }
-    pre {
-      background: #eee;
-      padding: 10px;
-      border-radius: 6px;
-      white-space: pre-wrap;
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ESG Governance Demo</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
-    <h1>🌍 ESG Governance Demo (MVP2/4)</h1>
+    <h1>🌱 ESG Governance Demo</h1>
     <nav>
-      <a href="page2.html">➡ Go to ESG Data & Green Token (MVP3/4)</a>
+      <a href="index.html">MVP1+2</a> |
+      <a href="page2.html">MVP3+4</a>
     </nav>
   </header>
 
-  <section>
-    <h2>🔌 Wallet</h2>
-    <p id="walletAddress">Not connected</p>
+  <div id="wallet">
     <button id="connectButton">Connect Wallet</button>
     <button id="disconnectButton">Disconnect</button>
-  </section>
+    <p id="walletAddress">Not connected</p>
+  </div>
 
   <section>
-    <h2>🏢 Enterprise - Upload Report</h2>
+    <h2>1. Upload Report (Enterprise)</h2>
     <input type="file" id="fileInput" />
-    <button id="uploadButton">Upload</button>
+    <button id="uploadButton">Upload & Register</button>
     <pre id="uploadResult"></pre>
   </section>
 
   <section>
-    <h2>🕵️ Auditor - Attestation</h2>
-    <input type="text" id="hashInput" placeholder="Enter file hash" size="70" />
-    <br/>
-    <input type="text" id="reasonInput" placeholder="Reason (optional)" size="70" />
-    <br/>
-    <button id="attestPass">✅ Approve</button>
-    <button id="attestFail">❌ Reject</button>
+    <h2>2. Auditor Attestation</h2>
+    <input type="text" id="hashInput" placeholder="Enter file hash (0x...)" />
+    <input type="text" id="reasonInput" placeholder="Reason (optional)" />
+    <button id="attestPass">✔ Approve</button>
+    <button id="attestFail">✘ Reject</button>
     <pre id="attestResult"></pre>
   </section>
 
   <section>
-    <h2>📊 Report Status</h2>
-    <input type="text" id="statusHash" placeholder="Enter file hash" size="70" />
+    <h2>3. Check Report Status</h2>
+    <input type="text" id="statusHash" placeholder="Enter file hash (0x...)" />
     <button id="checkStatus">Check Status</button>
     <pre id="statusResult"></pre>
   </section>
 
+  <!-- ethers.js v5 (use jsDelivr for stability) -->
+  <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
+
+  <!-- your frontend logic -->
   <script src="app.js"></script>
 </body>
 </html>
