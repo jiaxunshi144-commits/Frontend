@@ -2,60 +2,96 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ESG Data & Rewards Demo</title>
-  <link rel="icon" href="favicon.ico" />
-
-  <!-- Ethers.js v5 -->
-  <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
-
+  <title>MVP3/4 - ESG Data & Green Token</title>
+  <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.min.js"></script>
   <style>
     body {
       font-family: Arial, sans-serif;
-      max-width: 800px;
-      margin: 40px auto;
-      line-height: 1.6;
+      margin: 20px;
+      background: #f9f9f9;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #006600;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 20px;
+    }
+    header nav a {
+      text-decoration: none;
+      color: #fff;
+      background: #004d99;
+      padding: 8px 14px;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+    header nav a:hover {
+      background: #003366;
+    }
+    section {
+      background: white;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
     button {
-      margin: 6px 0;
-      padding: 8px 14px;
-      cursor: pointer;
-    }
-    .section {
-      border: 1px solid #ddd;
-      padding: 16px;
-      margin: 20px 0;
+      margin-top: 10px;
+      margin-right: 10px;
+      padding: 6px 12px;
+      border: none;
       border-radius: 6px;
+      cursor: pointer;
+      background: #006600;
+      color: white;
+    }
+    button:hover {
+      background: #009900;
     }
     pre {
-      background: #f9f9f9;
+      background: #eee;
       padding: 10px;
       border-radius: 6px;
-      max-height: 200px;
-      overflow-y: auto;
+      white-space: pre-wrap;
     }
   </style>
 </head>
 <body>
-  <h2>🌍 ESG Data & Rewards Demo</h2>
+  <header>
+    <h1>🌱 ESG Data & Green Token (MVP3/4)</h1>
+    <nav>
+      <a href="index.html">⬅ Back to Governance & Attestation (MVP2)</a>
+    </nav>
+  </header>
 
-  <button id="connectButton">🔗 Connect Wallet</button>
-  <button id="disconnectButton">❌ Disconnect</button>
-  <p id="walletAddress">Not connected</p>
+  <section>
+    <h2>🔌 Wallet</h2>
+    <p id="walletAddress">Not connected</p>
+    <button id="connectButton">Connect Wallet</button>
+    <button id="disconnectButton">Disconnect</button>
+  </section>
 
-  <div class="section">
-    <h3>3. IoT ESG Data Feed</h3>
-    <button id="startFeed">▶ Start Data Feed (1-min interval)</button>
-    <button id="stopFeed">⏹ Stop Data Feed</button>
+  <section>
+    <h2>📡 ESG Data Feed</h2>
+    <button id="startFeed">▶ Start Feed</button>
+    <button id="stopFeed">⏸ Stop Feed</button>
     <pre id="dataFeed">[No data yet]</pre>
-  </div>
+  </section>
 
-  <div class="section">
-    <h3>4. Token Rewards</h3>
-    <button id="checkBalance">Check Enterprise Balance</button>
+  <section>
+    <h2>💰 Green Token Balance</h2>
+    <button id="checkBalance">Check Balance</button>
     <pre id="balanceResult">Balance: 0 GRT</pre>
-  </div>
+  </section>
 
-  <script src="./app_mvp34.js"></script>
+  <!-- 引用 app2.js (MVP3/4 的逻辑) -->
+  <script src="app2.js"></script>
 </body>
 </html>
