@@ -2,69 +2,107 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ESG Governance Demo</title>
-  <link rel="icon" href="favicon.ico" />
-
-  <!-- Ethers.js v5 -->
-  <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
-
+  <title>MVP2/4 - Governance & Attestation</title>
+  <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.min.js"></script>
   <style>
     body {
       font-family: Arial, sans-serif;
-      max-width: 700px;
-      margin: 40px auto;
-      line-height: 1.6;
+      margin: 20px;
+      background: #f9f9f9;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #004d99;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 20px;
+    }
+    header nav a {
+      text-decoration: none;
+      color: #fff;
+      background: #00cc66;
+      padding: 8px 14px;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+    header nav a:hover {
+      background: #00994d;
+    }
+    section {
+      background: white;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
     button {
-      margin: 6px 0;
-      padding: 8px 14px;
-      cursor: pointer;
-    }
-    input {
-      width: 100%;
-      padding: 6px;
-      margin: 6px 0;
-    }
-    .section {
-      border: 1px solid #ddd;
-      padding: 16px;
-      margin: 20px 0;
+      margin-top: 10px;
+      margin-right: 10px;
+      padding: 6px 12px;
+      border: none;
       border-radius: 6px;
+      cursor: pointer;
+      background: #004d99;
+      color: white;
+    }
+    button:hover {
+      background: #0066cc;
+    }
+    pre {
+      background: #eee;
+      padding: 10px;
+      border-radius: 6px;
+      white-space: pre-wrap;
     }
   </style>
 </head>
 <body>
-  <h2>🌱 ESG Governance Demo</h2>
+  <header>
+    <h1>🌍 ESG Governance Demo (MVP2/4)</h1>
+    <nav>
+      <a href="page2.html">➡ Go to ESG Data & Green Token (MVP3/4)</a>
+    </nav>
+  </header>
 
-  <button id="connectButton">🔗 Connect Wallet</button>
-  <button id="disconnectButton">❌ Disconnect</button>
-  <p id="walletAddress">Not connected</p>
+  <section>
+    <h2>🔌 Wallet</h2>
+    <p id="walletAddress">Not connected</p>
+    <button id="connectButton">Connect Wallet</button>
+    <button id="disconnectButton">Disconnect</button>
+  </section>
 
-  <div class="section">
-    <h3>1. Enterprise Upload Report</h3>
+  <section>
+    <h2>🏢 Enterprise - Upload Report</h2>
     <input type="file" id="fileInput" />
-    <button id="uploadButton">Upload & Register</button>
+    <button id="uploadButton">Upload</button>
     <pre id="uploadResult"></pre>
-  </div>
+  </section>
 
-  <div class="section">
-    <h3>2. Auditor Attestation</h3>
-    <input type="text" id="hashInput" placeholder="Enter file hash (0x...)" />
-    <input type="text" id="reasonInput" placeholder="Reason (optional)" />
+  <section>
+    <h2>🕵️ Auditor - Attestation</h2>
+    <input type="text" id="hashInput" placeholder="Enter file hash" size="70" />
+    <br/>
+    <input type="text" id="reasonInput" placeholder="Reason (optional)" size="70" />
+    <br/>
     <button id="attestPass">✅ Approve</button>
     <button id="attestFail">❌ Reject</button>
     <pre id="attestResult"></pre>
-  </div>
+  </section>
 
-  <div class="section">
-    <h3>3. Check Report Status</h3>
-    <input type="text" id="statusHash" placeholder="Enter file hash (0x...)" />
+  <section>
+    <h2>📊 Report Status</h2>
+    <input type="text" id="statusHash" placeholder="Enter file hash" size="70" />
     <button id="checkStatus">Check Status</button>
     <pre id="statusResult"></pre>
-  </div>
+  </section>
 
-  <!-- JS Logic -->
-  <script src="./app.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
