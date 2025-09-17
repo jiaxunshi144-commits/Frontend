@@ -1,277 +1,70 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="GAB | Global Authentication Blockchain - File authenticity & provenance powered by blockchain.">
-  <title>GAB | Global Authentication Blockchain</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ESG Governance Demo</title>
+  <link rel="icon" href="favicon.ico" />
 
-  <!-- AOS 动画库 -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <!-- Ethers.js v5 -->
+  <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 700px;
+      margin: 40px auto;
+      line-height: 1.6;
+    }
+    button {
+      margin: 6px 0;
+      padding: 8px 14px;
+      cursor: pointer;
+    }
+    input {
+      width: 100%;
+      padding: 6px;
+      margin: 6px 0;
+    }
+    .section {
+      border: 1px solid #ddd;
+      padding: 16px;
+      margin: 20px 0;
+      border-radius: 6px;
+    }
+  </style>
 </head>
-
 <body>
-  <!-- Header -->
-  <header>
-    <nav class="navbar">
-      <div class="logo">GAB</div>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="market.html">Market</a></li>
-        <li><a href="blog-detail.html">Blog</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+  <h2>🌱 ESG Governance Demo</h2>
 
-  <!-- Hero -->
-  <section class="hero section" data-aos="fade-up">
-    <div class="hero-content">
-      <h1>Trust Every File. Trace Every Hash.</h1>
-      <p>Blockchain-powered authenticity & provenance system for a transparent digital world.</p>
-    </div>
-  </section>
+  <button id="connectButton">🔗 Connect Wallet</button>
+  <button id="disconnectButton">❌ Disconnect</button>
+  <p id="walletAddress">Not connected</p>
 
-  <!-- Background -->
-  <section class="section" data-aos="fade-up">
-    <h2>Background</h2>
-    <p>
-      GAB (Global Authentication Blockchain) addresses challenges like greenwashing, fake sustainability claims,
-      and unverifiable reports by enabling traceable, blockchain-backed provenance for files and documents.
-    </p>
-  </section>
-
-  <!-- Objective -->
-  <section class="section" data-aos="fade-up">
-    <h2>Objective</h2>
-    <p>
-      To leverage blockchain for secure and scalable verification, allowing anyone to trace and prove the authenticity
-      of data, research outputs, or ESG reports with a single QR code or hash reference.
-    </p>
-  </section>
-
-  <!-- Demo -->
-  <section class="section demo" data-aos="fade-up">
-    <h2>Demo</h2>
-    <form id="uploadForm">
-      <input type="file" id="fileInput" required>
-      <button type="submit">Upload & Verify</button>
-    </form>
-    <div id="result" class="result-box"></div>
-  </section>
-
-  <!-- Team -->
-  <section class="section team" data-aos="fade-up">
-    <h2>Team</h2>
-    <div class="team-grid">
-      <div class="team-card" data-aos="zoom-in" data-aos-delay="200">
-        <img src="assets/media/avatar1.png" alt="Member 1">
-        <h3>Member 1</h3>
-        <p>Blockchain Engineer</p>
-      </div>
-      <div class="team-card" data-aos="zoom-in" data-aos-delay="400">
-        <img src="assets/media/avatar2.png" alt="Member 2">
-        <h3>Member 2</h3>
-        <p>Frontend Developer</p>
-      </div>
-      <div class="team-card" data-aos="zoom-in" data-aos-delay="600">
-        <img src="assets/media/avatar3.png" alt="Member 3">
-        <h3>Member 3</h3>
-        <p>Research Lead</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <footer class="section" data-aos="fade-up">
-    <p>© 2025 GAB Project | Contact: info@gab.org</p>
-  </footer>
-
-  <!-- JS -->
-  <script>
-    const form = document.getElementById("uploadForm");
-    const fileInput = document.getElementById("fileInput");
-    const resultBox = document.getElementById("result");
-
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      const file = fileInput.files[0];
-      if (!file) return;
-
-      const formData = new FormData();
-      formData.append("file", file);
-
-      resultBox.innerHTML = "⏳ Uploading...";
-
-      try {
-        const res = await fetch("https://backend-2h3r.onrender.com/upload", {
-          method: "POST",
-          body: formData,
-        });
-        const data = await res.json();
-        resultBox.innerHTML = `
-          <p><strong>File Hash:</strong> ${data.fileHash}</p>
-          <p><a href="${data.transactionLink}" target="_blank">View Transaction</a></p>
-          <img src="${data.qrCode}" alt="QR Code" />
-        `;
-      } catch (err) {
-        resultBox.innerHTML = "❌ Upload failed. Please try again.";
-      }
-    });
-  </script>
-
-  <!-- AOS 动画库 -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init({
-      duration: 1200,
-      once: true
-    });
-  </script>
-</body>
-</html>
-=======
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="GAB | Global Authentication Blockchain - File authenticity & provenance powered by blockchain.">
-  <title>GAB | Global Authentication Blockchain</title>
-  <link rel="stylesheet" href="style.css">
-
-  <!-- AOS 动画库 -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-</head>
-
-<body>
-  <!-- Header -->
-  <header>
-    <nav class="navbar">
-      <div class="logo">GAB</div>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="market.html">Market</a></li>
-        <li><a href="blog-detail.html">Blog</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <!-- Hero -->
-  <section class="hero section" data-aos="fade-up">
-    <div class="hero-content">
-      <h1>Trust Every File. Trace Every Hash.</h1>
-      <p>Blockchain-powered authenticity & provenance system for a transparent digital world.</p>
-    </div>
-  </section>
-
-  <!-- Background -->
-  <section class="section" data-aos="fade-up">
-    <h2>Background</h2>
-    <div class="text-box">
-      <p>
-        GAB (Global Authentication Blockchain) addresses challenges like greenwashing,
-        fake sustainability claims, and unverifiable reports by enabling traceable,
-        blockchain-backed provenance for files and documents.
-      </p>
+  <div class="section">
+    <h3>1. Enterprise Upload Report</h3>
+    <input type="file" id="fileInput" />
+    <button id="uploadButton">Upload & Register</button>
+    <pre id="uploadResult"></pre>
   </div>
-</section>
 
+  <div class="section">
+    <h3>2. Auditor Attestation</h3>
+    <input type="text" id="hashInput" placeholder="Enter file hash (0x...)" />
+    <input type="text" id="reasonInput" placeholder="Reason (optional)" />
+    <button id="attestPass">✅ Approve</button>
+    <button id="attestFail">❌ Reject</button>
+    <pre id="attestResult"></pre>
+  </div>
 
-  <!-- Objective -->
-  <section class="section" data-aos="fade-up">
-    <h2>Objective</h2>
-    <p>
-      To leverage blockchain for secure and scalable verification, allowing anyone to trace and prove the authenticity
-      of data, research outputs, or ESG reports with a single QR code or hash reference.
-    </p>
-  </section>
+  <div class="section">
+    <h3>3. Check Report Status</h3>
+    <input type="text" id="statusHash" placeholder="Enter file hash (0x...)" />
+    <button id="checkStatus">Check Status</button>
+    <pre id="statusResult"></pre>
+  </div>
 
-  <!-- Demo -->
-  <section class="section demo" data-aos="fade-up">
-    <h2>Demo</h2>
-    <form id="uploadForm">
-      <input type="file" id="fileInput" required>
-      <button type="submit">Upload & Verify</button>
-    </form>
-    <div id="result" class="result-box"></div>
-  </section>
-
-  <!-- Team -->
-  <section class="section team" data-aos="fade-up">
-    <h2>Team</h2>
-    <div class="team-grid">
-      <div class="team-card" data-aos="zoom-in" data-aos-delay="200">
-        <img src="assets/media/avatar1.png" alt="Member 1">
-        <h3>Member 1</h3>
-        <p>Blockchain Engineer</p>
-      </div>
-      <div class="team-card" data-aos="zoom-in" data-aos-delay="400">
-        <img src="assets/media/avatar2.png" alt="Member 2">
-        <h3>Member 2</h3>
-        <p>Frontend Developer</p>
-      </div>
-      <div class="team-card" data-aos="zoom-in" data-aos-delay="600">
-        <img src="assets/media/avatar3.png" alt="Member 3">
-        <h3>Member 3</h3>
-        <p>Research Lead</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <footer class="section" data-aos="fade-up">
-    <p>© 2025 GAB Project | Contact: info@gab.org</p>
-  </footer>
-
-  <!-- JS -->
-  <script>
-    const form = document.getElementById("uploadForm");
-    const fileInput = document.getElementById("fileInput");
-    const resultBox = document.getElementById("result");
-
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      const file = fileInput.files[0];
-      if (!file) return;
-
-      const formData = new FormData();
-      formData.append("file", file);
-
-      resultBox.innerHTML = "⏳ Uploading...";
-
-      try {
-        const res = await fetch("https://backend-2h3r.onrender.com/upload", {
-          method: "POST",
-          body: formData,
-        });
-        const data = await res.json();
-        resultBox.innerHTML = `
-          <p><strong>File Hash:</strong> ${data.fileHash}</p>
-          <p><a href="${data.transactionLink}" target="_blank">View Transaction</a></p>
-          <img src="${data.qrCode}" alt="QR Code" />
-        `;
-      } catch (err) {
-        resultBox.innerHTML = "❌ Upload failed. Please try again.";
-      }
-    });
-  </script>
-
-  <!-- AOS 动画库 -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init({
-      duration: 1200,
-      once: true
-    });
-  </script>
+  <!-- JS Logic -->
+  <script src="./app.js"></script>
 </body>
 </html>
->>>>>>> 124cb14 (Add assets/media folder with design elements)

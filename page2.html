@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ESG Data & Rewards Demo</title>
+  <link rel="icon" href="favicon.ico" />
+
+  <!-- Ethers.js v5 -->
+  <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 40px auto;
+      line-height: 1.6;
+    }
+    button {
+      margin: 6px 0;
+      padding: 8px 14px;
+      cursor: pointer;
+    }
+    .section {
+      border: 1px solid #ddd;
+      padding: 16px;
+      margin: 20px 0;
+      border-radius: 6px;
+    }
+    pre {
+      background: #f9f9f9;
+      padding: 10px;
+      border-radius: 6px;
+      max-height: 200px;
+      overflow-y: auto;
+    }
+  </style>
+</head>
+<body>
+  <h2>🌍 ESG Data & Rewards Demo</h2>
+
+  <button id="connectButton">🔗 Connect Wallet</button>
+  <button id="disconnectButton">❌ Disconnect</button>
+  <p id="walletAddress">Not connected</p>
+
+  <div class="section">
+    <h3>3. IoT ESG Data Feed</h3>
+    <button id="startFeed">▶ Start Data Feed (1-min interval)</button>
+    <button id="stopFeed">⏹ Stop Data Feed</button>
+    <pre id="dataFeed">[No data yet]</pre>
+  </div>
+
+  <div class="section">
+    <h3>4. Token Rewards</h3>
+    <button id="checkBalance">Check Enterprise Balance</button>
+    <pre id="balanceResult">Balance: 0 GRT</pre>
+  </div>
+
+  <script src="./app_mvp34.js"></script>
+</body>
+</html>
