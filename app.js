@@ -1,6 +1,6 @@
 // ============ Contract Config ============
-const GOVERNANCE_ADDR = "0xcc288c7cbfb3b69968dc248cd043bd548fc1af01"; // governance contract
-const TOKEN_ADDR = "0x4d92958296787c267b84428d7f415d9ae9781898";   // green token contract
+const GOVERNANCE_ADDR = "0x4b73515d2DfEfd5aaaDA2286227A2cBC6DbB903e"; // governance contract
+const TOKEN_ADDR = "0x3B7b8dF8f95166a919Ec4C252Ca71a06561DDF98";   // green token contract
 
 const GOVERNANCE_ABI = [
   "function registerContent(bytes32 hash) public",
