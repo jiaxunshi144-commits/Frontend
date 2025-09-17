@@ -2,70 +2,62 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MVP3 & MVP4 Demo</title>
+  <title>MVP3/4 – ESG Data Feed</title>
+  <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.min.js"></script>
+  <script src="page2.js" defer></script>
   <style>
     body {
       font-family: Arial, sans-serif;
       margin: 20px;
-      background: #f9f9f9;
+      background: #f5f7fa;
     }
     h1 {
       color: #2c3e50;
     }
-    .section {
-      margin-bottom: 20px;
-      padding: 15px;
-      background: #fff;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
     button {
       margin: 5px;
-      padding: 8px 12px;
+      padding: 10px 15px;
+      font-size: 14px;
+      border-radius: 6px;
       border: none;
-      background: #2ecc71;
-      color: white;
-      border-radius: 4px;
       cursor: pointer;
+      background-color: #3498db;
+      color: white;
     }
     button:hover {
-      background: #27ae60;
+      background-color: #2980b9;
+    }
+    #nav {
+      margin-bottom: 20px;
     }
     #dataFeed {
       white-space: pre-wrap;
-      background: #f4f4f4;
-      padding: 10px;
-      border-radius: 6px;
-      max-height: 300px;
+      background: #fff;
+      border: 1px solid #ddd;
+      padding: 15px;
+      border-radius: 8px;
+      max-height: 400px;
       overflow-y: auto;
     }
   </style>
 </head>
 <body>
-  <h1>🌍 ESG Auto Data + Governance Demo</h1>
+  <div id="nav">
+    <button onclick="window.location.href='index.html'">← Back to MVP1/2</button>
+  </div>
+
+  <h1>MVP3/4 – ESG Data Feed</h1>
   <p id="walletAddress">Not connected</p>
   <button id="connectButton">Connect Wallet</button>
   <button id="disconnectButton">Disconnect</button>
+  <button id="startFeed">Start Data Feed</button>
+  <button id="stopFeed">Stop Data Feed</button>
+  <button id="checkBalance">Check Balance</button>
 
-  <div class="section">
-    <h2>1. ESG Data Feed (Enterprise)</h2>
-    <button id="startFeed">▶ Start Feed</button>
-    <button id="stopFeed">⏹ Stop Feed</button>
-    <pre id="dataFeed">[No data yet]</pre>
-  </div>
+  <h3>ESG Data Uploads</h3>
+  <div id="dataFeed">[No data yet]</div>
 
-  <div class="section">
-    <h2>2. Token Balance</h2>
-    <button id="checkBalance">Check Balance</button>
-    <p id="balanceResult">Balance: 0 GRT</p>
-  </div>
-<!-- ethers.js v5 -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/5.7.2/ethers.umd.min.js"></script>
-
-<!-- 你自己的脚本 -->
-  <script src="page2.js"></script>
-
-
+  <h3>Green Token Balance</h3>
+  <p id="balanceResult">Balance: 0 GRT</p>
 </body>
 </html>
