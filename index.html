@@ -7,25 +7,6 @@
   <link rel="stylesheet" href="style.css" />
   <!-- ethers.js v5 -->
   <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
-
-  <style>
-    .console{
-      background:#1e1e1e;color:#d4d4d4;
-      font-family:"Fira Code",ui-monospace,monospace;
-      font-size:16px;padding:16px;border-radius:8px;
-      max-height:400px;overflow-y:auto;white-space:pre-wrap
-    }
-    .finance-status{display:flex;flex-direction:column;gap:16px;margin-top:16px}
-    .status-item{display:flex;align-items:center;justify-content:space-between;
-      background:#f9f9f9;border-radius:12px;padding:16px 20px;
-      box-shadow:0 4px 10px rgba(0,0,0,.05);font-size:18px}
-    .status-item .product{font-weight:700;color:#1C7C54;min-width:200px}
-    .status-item .detail{flex:1;text-align:left;color:#444;padding:0 10px}
-    .status-item .mark{font-size:22px;min-width:28px;text-align:right}
-    .criteria-list{list-style:none;padding-left:0;font-size:15px;line-height:1.6;color:#444}
-    .criteria-list li{margin:6px 0;background:#f9f9f9;padding:8px 12px;border-radius:8px;box-shadow:0 2px 6px rgba(0,0,0,0.05)}
-    .criteria-list strong{color:#1C7C54;margin-right:6px}
-  </style>
 </head>
 <body>
   <header>
@@ -107,13 +88,50 @@
   <!-- ⑤ Finance Criteria Reference -->
   <section class="card">
     <h2><span class="step-circle">⑤</span> Finance Criteria Reference</h2>
-    <ul class="criteria-list">
-      <li><strong>Loan:</strong> &lt;50 ❌ Not eligible | 50–99 ⚡ Up to S$1M, -0.1% | 100–199 ✅ Up to S$2M, -0.2% | ≥200 ✅ Up to S$5M, -0.3%</li>
-      <li><strong>Bond:</strong> &lt;100 ❌ Not eligible | 100–199 ⚡ Pilot coupon -0.1% | ≥200 ✅ Coupon reduced -0.2%</li>
-      <li><strong>Carbon Credits:</strong> Balance ×0.2 credits, each ≈ USD 5</li>
-      <li><strong>Insurance:</strong> &lt;100 ❌ Not eligible | 100–199 ✅ Premium discount 5% | ≥200 ✅ Premium discount 8%</li>
-      <li><strong>Supply Chain Finance:</strong> &lt;50 ❌ Not eligible | 50–199 ✅ Discount rate -0.2% | ≥200 ✅ Discount rate -0.3%</li>
-    </ul>
+
+    <div class="criteria-block">
+      <h3>Loan</h3>
+      <ul>
+        <li><span class="mark">❌</span> <50 Not eligible</li>
+        <li><span class="mark">⚡</span> 50–99 Up to S$1M, -0.1%</li>
+        <li><span class="mark">✅</span> 100–199 Up to S$2M, -0.2%</li>
+        <li><span class="mark">✅</span> ≥200 Up to S$5M, -0.3%</li>
+      </ul>
+    </div>
+
+    <div class="criteria-block">
+      <h3>Bond</h3>
+      <ul>
+        <li><span class="mark">❌</span> <100 Not eligible</li>
+        <li><span class="mark">⚡</span> 100–199 Pilot coupon -0.1%</li>
+        <li><span class="mark">✅</span> ≥200 Coupon reduced -0.2%</li>
+      </ul>
+    </div>
+
+    <div class="criteria-block">
+      <h3>Carbon Credits</h3>
+      <ul>
+        <li><span class="mark">ℹ️</span> Balance ×0.2 credits, each ≈ USD 5</li>
+      </ul>
+    </div>
+
+    <div class="criteria-block">
+      <h3>Insurance</h3>
+      <ul>
+        <li><span class="mark">❌</span> <100 Not eligible</li>
+        <li><span class="mark">✅</span> 100–199 Premium discount 5%</li>
+        <li><span class="mark">✅</span> ≥200 Premium discount 8%</li>
+      </ul>
+    </div>
+
+    <div class="criteria-block">
+      <h3>Supply Chain Finance</h3>
+      <ul>
+        <li><span class="mark">❌</span> <50 Not eligible</li>
+        <li><span class="mark">✅</span> 50–199 Discount rate -0.2%</li>
+        <li><span class="mark">✅</span> ≥200 Discount rate -0.3%</li>
+      </ul>
+    </div>
   </section>
 
   <!-- enterprise logic -->
