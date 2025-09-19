@@ -1,43 +1,26 @@
-/* ====== 引入新字体 ====== */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
 
-/* ====== Base ====== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
   font-family: "Montserrat", sans-serif;
   background: #2ecc71; /* 果绿色背景 */
-  color: #fff;         /* 全局字体白色 */
+  color: #fff;
   line-height: 1.6;
   padding: 20px;
 }
 
-/* ====== Header ====== */
-header {
-  text-align: center;
-  margin-bottom: 30px;
-}
+/* ===== Header & Nav ===== */
+header { text-align: center; margin-bottom: 30px; }
+header h1 { margin-bottom: 12px; font-size: 40px; font-weight: 700; color: #fff; }
 
-header h1 {
-  margin-bottom: 12px;
-  font-size: 40px;   /* 标题更大 */
-  font-weight: 700;
-  color: #fff;
-}
-
-/* ====== Nav ====== */
 nav {
   display: inline-block;
-  background: rgba(255, 255, 255, 0.2);  /* 半透明白，突出导航条 */
+  background: rgba(255,255,255,0.2);
   padding: 10px 25px;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
-
 nav a {
   margin: 0 15px;
   text-decoration: none;
@@ -48,15 +31,11 @@ nav a {
   border-radius: 6px;
   transition: all 0.2s ease-in-out;
 }
+nav a:hover { background: #27ae60; color: #fff; }
 
-nav a:hover {
-  background: #27ae60;
-  color: #fff;
-}
-
-/* ====== Card ====== */
+/* ===== Card ===== */
 .card, section {
-  background: rgba(39, 174, 96, 0.85); /* 高透明度果绿色卡片 */
+  background: rgba(39,174,96,0.85);
   padding: 20px;
   margin: 20px 0;
   border-radius: 16px;
@@ -64,41 +43,33 @@ nav a:hover {
   color: #fff;
 }
 
-/* ====== Steps ====== */
+/* ===== Steps ===== */
 .step-circle {
   display: inline-block;
-  width: 30px;
-  height: 30px;
-  line-height: 30px;
+  width: 30px; height: 30px; line-height: 30px;
   border-radius: 50%;
-  background: #fff;
-  color: #27ae60;
+  background: #fff; color: #27ae60;
   text-align: center;
-  font-size: 16px;
-  font-weight: bold;
+  font-size: 16px; font-weight: bold;
   margin-right: 8px;
 }
 
-/* ====== Buttons ====== */
+/* ===== Titles ===== */
+h1, h2, h3 { font-weight: 700; }
+
+/* ===== Buttons ===== */
 button {
-  margin: 6px;
-  padding: 10px 18px;
+  font-family: inherit;
+  margin: 6px; padding: 10px 18px;
   font-size: 15px;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
-  background: #fff;
-  color: #27ae60;
+  border-radius: 8px; border: none; cursor: pointer;
+  background: #fff; color: #27ae60;
   font-weight: 600;
   transition: all 0.2s ease-in-out;
 }
+button:hover { background: #27ae60; color: #fff; }
 
-button:hover {
-  background: #27ae60;
-  color: #fff;
-}
-
-/* ====== Console / Results ====== */
+/* ===== Console / Results ===== */
 .console, pre, #resultBox {
   background: rgba(0,0,0,0.8);
   color: #f1f1f1;
@@ -106,66 +77,38 @@ button:hover {
   padding: 14px;
   border-radius: 8px;
   margin-top: 10px;
-  max-height: 350px;
-  overflow-y: auto;
+  max-height: 350px; overflow-y: auto;
   white-space: pre-wrap;
   font-size: 14px;
 }
 
-/* ====== Finance Status ====== */
+/* ===== Finance Status ===== */
 .finance-status {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  margin-top: 14px;
+  display: flex; flex-direction: column; gap: 14px; margin-top: 14px;
 }
-
 .status-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: rgba(255, 255, 255, 0.15);
-  border-radius: 12px;
-  padding: 14px 18px;
-  font-size: 16px;
-  color: #fff;
+  display: flex; align-items: center; justify-content: space-between;
+  background: rgba(255,255,255,0.15);
+  border-radius: 12px; padding: 14px 18px;
+  font-size: 16px; color: #fff;
 }
+.status-item .product { font-weight: 700; color: #fff; min-width: 200px; }
+.status-item .detail { flex: 1; text-align: left; color: #eee; padding: 0 10px; }
+.status-item .mark { font-size: 20px; min-width: 28px; text-align: right; }
 
-.status-item .product {
-  font-weight: 700;
-  color: #fff;
-  min-width: 200px;
-}
-
-.status-item .detail {
-  flex: 1;
-  text-align: left;
-  color: #eee;
-  padding: 0 10px;
-}
-
-.status-item .mark {
-  font-size: 20px;
-  min-width: 28px;
-  text-align: right;
-}
-
-/* ====== Criteria Reference ====== */
-.criteria-list {
-  list-style: none;
-  padding-left: 0;
+/* ===== Criteria Reference ===== */
+.criteria-block { margin-bottom: 18px; }
+.criteria-block h3 { color: #fff; margin-bottom: 8px; font-size: 18px; font-weight: 700; }
+.criteria-block ul { list-style: none; padding-left: 0; }
+.criteria-block li {
+  background: rgba(255,255,255,0.15);
+  margin: 4px 0; padding: 6px 10px;
+  border-radius: 6px;
   font-size: 15px;
-  line-height: 1.6;
-  color: #fff;
+  display: flex; align-items: center;
 }
-
-.criteria-list li {
-  margin: 6px 0;
-  background: rgba(255, 255, 255, 0.15);
-  padding: 8px 12px;
-  border-radius: 8px;
-}
-.criteria-list strong {
-  color: #fff;
-  font-weight: 600;
+.criteria-block .mark {
+  display: inline-block;
+  width: 24px; text-align: center;
+  margin-right: 8px; font-size: 16px;
 }
