@@ -16,6 +16,9 @@ let provider = null, signer = null, governance = null, token = null, feedInterva
 function toBytes32FromString(str) {
   return ethers.utils.keccak256(ethers.utils.toUtf8Bytes(str));
 }
+function toBytes32FromData(obj) {
+  return ethers.utils.keccak256(ethers.utils.toUtf8Bytes(JSON.stringify(obj)));
+}
 async function initContracts() {
   governance = new ethers.Contract(GOVERNANCE_ADDR, GOVERNANCE_ABI, signer);
   token = new ethers.Contract(TOKEN_ADDR, TOKEN_ABI, signer);
@@ -27,14 +30,21 @@ function closeModal(id) { document.getElementById(id).style.display = "none"; }
 
 // ============ Wallet ============
 async function connectWallet() {
-  if (!window.ethereum) return alert("Please install MetaMask!");
-  provider = new ethers.providers.Web3Provider(window.ethereum);
-  await provider.send("eth_requestAccounts", []);
-  signer = provider.getSigner();
-  const addr = await signer.getAddress();
-  document.getElementById("walletAddress").innerText = "Connected: " + addr;
-  await initContracts();
+  try {
+    if (!window.ethereum) return alert("Please install MetaMask!");
+    provider = new ethers.providers.Web3Provider(window.ethereum);
+    await provider.send("eth_requestAccounts", []);
+    signer = provider.getSigner();
+    const addr = await signer.getAddress();
+    document.getElementById("walletAddress").innerText = "Connected: " + addr;
+    await initContracts();
+    console.log("✅ Wallet connected:", addr);
+  } catch (err) {
+    console.error("❌ Wallet connection failed:", err);
+    alert("Wallet connection failed: " + err.message);
+  }
 }
+
 async function disconnectWallet() {
   provider = signer = governance = token = null;
   document.getElementById("walletAddress").innerText = "Not connected";
@@ -43,6 +53,7 @@ async function disconnectWallet() {
   document.getElementById("dataFeed").innerText = "[No data yet]";
   document.getElementById("balanceResult").innerText = "Balance: 0 GRT";
   document.getElementById("impactResult").innerText = "CO₂ Reduction: 0 tons";
+  console.log("🔌 Disconnected");
 }
 
 // ============ Upload ============
@@ -89,9 +100,6 @@ function randomESGData() {
     ts: new Date().toISOString()
   };
 }
-function toBytes32FromData(obj) {
-  return ethers.utils.keccak256(ethers.utils.toUtf8Bytes(JSON.stringify(obj)));
-}
 async function pushESGData() {
   const data = randomESGData();
   const hash = toBytes32FromData(data);
@@ -110,4 +118,30 @@ function startFeed() {
 }
 function stopFeed() { if (feedInterval) clearInterval(feedInterval); feedInterval = null; }
 
-// =
+// ============ Token & Balance ============
+async function checkBalance() {
+  if (!token || !signer) return alert("Not connected");
+  const addr = await signer.getAddress();
+  const bal = await token.balanceOf(addr);
+  const balance = ethers.utils.formatUnits(bal, 18);
+  document.getElementById("balanceResult").innerText = `Balance: ${balance} GRT`;
+  document.getElementById("impactResult").innerText = `CO₂ Reduction: ${(balance * 0.2).toFixed(1)} tons`;
+}
+function resetBalance() {
+  document.getElementById("balanceResult").innerText = "Balance: 0 GRT";
+  document.getElementById("impactResult").innerText = "CO₂ Reduction: 0 tons";
+  document.querySelectorAll(".status-item .detail").forEach(el => el.innerText = "--");
+  document.querySelectorAll(".status-item .mark").forEach(el => el.innerText = "-");
+}
+
+// ============ Event Bindings ============
+window.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("connectButton").onclick = connectWallet;
+  document.getElementById("disconnectButton").onclick = disconnectWallet;
+  document.getElementById("uploadButton").onclick = uploadReport;
+  document.getElementById("checkStatus").onclick = checkStatus;
+  document.getElementById("startFeed").onclick = startFeed;
+  document.getElementById("stopFeed").onclick = stopFeed;
+  document.getElementById("checkBalance").onclick = checkBalance;
+  document.getElementById("resetBalance").onclick = resetBalance;
+});
