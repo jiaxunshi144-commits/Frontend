@@ -3,51 +3,120 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ESG Governance Demo</title>
+  <title>Enterprise Dashboard – ESG Governance</title>
   <link rel="stylesheet" href="style.css" />
+  <!-- ethers.js v5 -->
+  <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
+
+  <style>
+    .console{
+      background:#1e1e1e;color:#d4d4d4;
+      font-family:"Fira Code",ui-monospace,monospace;
+      font-size:16px;padding:16px;border-radius:8px;
+      max-height:400px;overflow-y:auto;white-space:pre-wrap
+    }
+    .finance-status{display:flex;flex-direction:column;gap:16px;margin-top:16px}
+    .status-item{display:flex;align-items:center;justify-content:space-between;
+      background:#f9f9f9;border-radius:12px;padding:16px 20px;
+      box-shadow:0 4px 10px rgba(0,0,0,.05);font-size:18px}
+    .status-item .product{font-weight:700;color:#1C7C54;min-width:200px}
+    .status-item .detail{flex:1;text-align:left;color:#444;padding:0 10px}
+    .status-item .mark{font-size:22px;min-width:28px;text-align:right}
+    .criteria-list{list-style:none;padding-left:0;font-size:15px;line-height:1.6;color:#444}
+    .criteria-list li{margin:6px 0;background:#f9f9f9;padding:8px 12px;border-radius:8px;box-shadow:0 2px 6px rgba(0,0,0,0.05)}
+    .criteria-list strong{color:#1C7C54;margin-right:6px}
+  </style>
 </head>
 <body>
   <header>
-    <h1>🌱 ESG Governance Demo</h1>
+    <h1>🌱 Enterprise Dashboard</h1>
     <nav>
-      <a href="index.html">MVP1+2</a> |
-      <a href="page2.html">MVP3+4</a>
+      <a href="index.html">Enterprise</a> |
+      <a href="page2.html">Auditor</a>
     </nav>
   </header>
 
-  <div id="wallet">
+  <!-- Wallet -->
+  <div id="wallet" class="card">
     <button id="connectButton">Connect Wallet</button>
     <button id="disconnectButton">Disconnect</button>
     <p id="walletAddress">Not connected</p>
   </div>
 
-  <section>
-    <h2>1. Upload Report (Enterprise)</h2>
+  <!-- ① IoT Data Instant On-Chain -->
+  <section class="card">
+    <h2><span class="step-circle">①</span> IoT Data Instant On-Chain</h2>
+    <button id="startFeed">Start Data Feed</button>
+    <button id="stopFeed">Stop Data Feed</button>
+    <div id="dataFeed" class="console">[No data yet]</div>
+  </section>
+
+  <!-- ② ESG Report Upload -->
+  <section class="card">
+    <h2><span class="step-circle">②</span> Upload Report (Enterprise)</h2>
     <input type="file" id="fileInput" />
     <button id="uploadButton">Upload & Register</button>
     <pre id="uploadResult"></pre>
   </section>
 
-  <section>
-    <h2>2. Auditor Attestation</h2>
-    <input type="text" id="hashInput" placeholder="Enter file hash (0x...)" />
-    <input type="text" id="reasonInput" placeholder="Reason (optional)" />
-    <button id="attestPass">✔ Approve</button>
-    <button id="attestFail">✘ Reject</button>
-    <pre id="attestResult"></pre>
-  </section>
-
-  <section>
-    <h2>3. Check Report Status</h2>
+  <!-- ③ Report Status -->
+  <section class="card">
+    <h2><span class="step-circle">③</span> Check Report Status</h2>
     <input type="text" id="statusHash" placeholder="Enter file hash (0x...)" />
     <button id="checkStatus">Check Status</button>
     <pre id="statusResult"></pre>
   </section>
 
-  <!-- ethers.js v5 (use jsDelivr for stability) -->
-  <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
+  <!-- ④ Token & Finance -->
+  <section class="card">
+    <h2><span class="step-circle">④</span> Token Distribution & Green Finance</h2>
+    <p id="balanceResult">Balance: 0 GRT</p>
+    <p id="impactResult">CO₂ Reduction: 0 tons</p>
+    <button id="checkBalance">Check Balance</button>
+    <button id="resetBalance">Reset Balance</button>
 
-  <!-- your frontend logic -->
+    <div class="finance-status">
+      <div class="status-item" id="loanStatus">
+        <span class="product">Loan</span>
+        <span class="detail">--</span>
+        <span class="mark">-</span>
+      </div>
+      <div class="status-item" id="bondStatus">
+        <span class="product">Bond</span>
+        <span class="detail">--</span>
+        <span class="mark">-</span>
+      </div>
+      <div class="status-item" id="carbonStatus">
+        <span class="product">Carbon Credits</span>
+        <span class="detail">--</span>
+        <span class="mark">-</span>
+      </div>
+      <div class="status-item" id="insuranceStatus">
+        <span class="product">Insurance</span>
+        <span class="detail">--</span>
+        <span class="mark">-</span>
+      </div>
+      <div class="status-item" id="scfStatus">
+        <span class="product">Supply Chain Finance</span>
+        <span class="detail">--</span>
+        <span class="mark">-</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑤ Finance Criteria Reference -->
+  <section class="card">
+    <h2><span class="step-circle">⑤</span> Finance Criteria Reference</h2>
+    <ul class="criteria-list">
+      <li><strong>Loan:</strong> &lt;50 ❌ Not eligible | 50–99 ⚡ Up to S$1M, -0.1% | 100–199 ✅ Up to S$2M, -0.2% | ≥200 ✅ Up to S$5M, -0.3%</li>
+      <li><strong>Bond:</strong> &lt;100 ❌ Not eligible | 100–199 ⚡ Pilot coupon -0.1% | ≥200 ✅ Coupon reduced -0.2%</li>
+      <li><strong>Carbon Credits:</strong> Balance ×0.2 credits, each ≈ USD 5</li>
+      <li><strong>Insurance:</strong> &lt;100 ❌ Not eligible | 100–199 ✅ Premium discount 5% | ≥200 ✅ Premium discount 8%</li>
+      <li><strong>Supply Chain Finance:</strong> &lt;50 ❌ Not eligible | 50–199 ✅ Discount rate -0.2% | ≥200 ✅ Discount rate -0.3%</li>
+    </ul>
+  </section>
+
+  <!-- enterprise logic -->
   <script src="app.js"></script>
 </body>
 </html>

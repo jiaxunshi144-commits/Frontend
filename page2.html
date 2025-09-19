@@ -2,66 +2,38 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>MVP3/4 – ESG Data Feed</title>
-  <!-- ethers.js v5 from jsDelivr -->
+  <title>Auditor Dashboard – ESG Governance</title>
   <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
-
-<!-- 你自己的脚本必须放在 ethers.js 后面 -->
   <script src="page2.js"></script>
 
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 20px;
-      background: #f5f7fa;
-    }
-    h1 {
-      color: #2c3e50;
-    }
+    body { font-family: Arial, sans-serif; background: #f5f7fa; margin: 20px; }
+    h1 { color: #2c3e50; }
     button {
-      margin: 5px;
-      padding: 10px 15px;
-      font-size: 14px;
-      border-radius: 6px;
-      border: none;
-      cursor: pointer;
-      background-color: #3498db;
-      color: white;
+      margin: 5px; padding: 10px 15px; font-size: 14px;
+      border-radius: 6px; border: none; cursor: pointer;
+      background-color: #3498db; color: white;
     }
-    button:hover {
-      background-color: #2980b9;
-    }
-    #nav {
-      margin-bottom: 20px;
-    }
-    #dataFeed {
-      white-space: pre-wrap;
-      background: #fff;
-      border: 1px solid #ddd;
-      padding: 15px;
-      border-radius: 8px;
-      max-height: 400px;
-      overflow-y: auto;
+    button:hover { background-color: #2980b9; }
+    #resultBox {
+      background: #fff; border: 1px solid #ddd; border-radius: 8px;
+      padding: 15px; margin-top: 15px; white-space: pre-wrap;
     }
   </style>
 </head>
 <body>
-  <div id="nav">
-    <button onclick="window.location.href='index.html'">← Back to MVP1/2</button>
-  </div>
-
-  <h1>MVP3/4 – ESG Data Feed</h1>
+  <h1>Auditor Dashboard</h1>
   <p id="walletAddress">Not connected</p>
   <button id="connectButton">Connect Wallet</button>
   <button id="disconnectButton">Disconnect</button>
-  <button id="startFeed">Start Data Feed</button>
-  <button id="stopFeed">Stop Data Feed</button>
-  <button id="checkBalance">Check Balance</button>
 
-  <h3>ESG Data Uploads</h3>
-  <div id="dataFeed">[No data yet]</div>
+  <h3>① Attest ESG Report</h3>
+  <input type="text" id="hashInput" placeholder="Enter file hash (0x...)" size="60"/>
+  <input type="text" id="reasonInput" placeholder="Reason (optional)" size="40"/>
+  <br/>
+  <button id="attestPass">✔ Approve & Reward</button>
+  <button id="attestFail">✘ Reject</button>
 
-  <h3>Green Token Balance</h3>
-  <p id="balanceResult">Balance: 0 GRT</p>
+  <div id="resultBox">[No action yet]</div>
 </body>
 </html>
