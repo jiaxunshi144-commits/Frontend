@@ -1,173 +1,139 @@
-/* ===== 全局设置 ===== */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
   font-family: "Montserrat", sans-serif;
-  background: #2ecc71;   /* 果绿色背景 */
+  background: #2ecc71; /* 果绿色背景 */
   color: #fff;
   line-height: 1.6;
-  margin: 0;
-  padding: 20px 40px;
+  padding: 20px;
 }
 
-/* 控制整体宽度，往右挪一点 */
-.container {
-  width: 100%;
-  max-width: 1200px;
-  margin-left: 80px;   /* 右移一点，不居中 */
-}
-
-/* ===== 标题和导航 ===== */
-header {
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-header h1 {
-  font-size: 40px;  /* 放大标题 */
-  font-weight: 700;
-  margin-bottom: 15px;
-  color: #fff;
-}
+/* ===== Header & Nav ===== */
+header { text-align: center; margin-bottom: 30px; }
+header h1 { margin-bottom: 12px; font-size: 40px; font-weight: 700; color: #fff; }
 
 nav {
   display: inline-block;
-  background: rgba(255, 255, 255, 0.15);
-  padding: 8px 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  background: rgba(255,255,255,0.2);
+  padding: 10px 25px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
-
 nav a {
   margin: 0 15px;
   text-decoration: none;
   font-weight: 600;
-  font-size: 16px;
+  font-size: 18px;
   color: #fff;
-  padding: 6px 10px;
+  padding: 6px 12px;
   border-radius: 6px;
   transition: all 0.2s ease-in-out;
 }
+nav a:hover { background: #27ae60; color: #fff; }
 
-nav a:hover {
-  background: #fff;
-  color: #27ae60;
-}
-
-/* ===== 卡片样式 ===== */
-.card {
-  background: rgba(255, 255, 255, 0.15); /* 半透明果绿色 */
+/* ===== Card ===== */
+.card, section {
+  background: rgba(39,174,96,0.85);
   padding: 20px;
   margin: 20px 0;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  border-radius: 16px;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+  color: #fff;
 }
 
-/* 卡片标题 */
-.card h2, .card h3 {
-  font-weight: 700;
-  margin-top: 0;
-  margin-bottom: 15px;
-  display: flex;
-  align-items: center;
-  font-size: 22px;
-}
-
-/* 步骤圆圈 */
+/* ===== Steps ===== */
 .step-circle {
   display: inline-block;
-  width: 36px;
-  height: 36px;
-  line-height: 36px;
+  width: 30px; height: 30px; line-height: 30px;
   border-radius: 50%;
-  background: #fff;
-  border: 3px solid #27ae60;
-  color: #27ae60;
+  background: #fff; color: #27ae60;
   text-align: center;
-  font-size: 18px;
-  font-weight: bold;
-  margin-right: 10px;
+  font-size: 16px; font-weight: bold;
+  margin-right: 8px;
 }
 
-/* ===== 按钮样式 ===== */
+/* ===== Buttons ===== */
 button {
-  background: #fff;
-  color: #27ae60;
-  border: none;
-  padding: 10px 18px;
-  margin: 6px 4px;
+  font-family: inherit;
+  margin: 6px; padding: 10px 18px;
   font-size: 15px;
+  border-radius: 8px; border: none; cursor: pointer;
+  background: #fff; color: #27ae60;
   font-weight: 600;
-  border-radius: 8px;
-  cursor: pointer;
   transition: all 0.2s ease-in-out;
 }
+button:hover { background: #27ae60; color: #fff; }
 
-button:hover {
-  background: #27ae60;
-  color: #fff;
-}
-
-/* ===== 输入框 ===== */
-input[type="file"], input[type="text"] {
-  margin: 8px 0;
-  padding: 10px;
-  border-radius: 6px;
-  border: none;
-  font-size: 14px;
-  width: auto;
-}
-
-/* ===== 数据显示区（黑底代码块风格） ===== */
-pre, #dataFeed {
-  background: #0b2e13;
-  color: #d4d4d4;
-  font-family: "Fira Code", monospace;
-  padding: 12px;
+/* ===== Console / Results ===== */
+.console, pre, #resultBox {
+  background: rgba(0,0,0,0.8);
+  color: #f1f1f1;
+  font-family: "Fira Code", ui-monospace, monospace;
+  padding: 14px;
   border-radius: 8px;
+  margin-top: 10px;
+  max-height: 350px; overflow-y: auto;
   white-space: pre-wrap;
-  max-height: 300px;
-  overflow-y: auto;
+  font-size: 14px;
 }
 
-/* ===== Finance Criteria Reference ===== */
-.finance-criteria {
-  background: rgba(255, 255, 255, 0.15);
+/* ===== Finance Status ===== */
+.finance-status {
+  display: flex; flex-direction: column; gap: 14px; margin-top: 14px;
+}
+.status-item {
+  display: flex; align-items: center; justify-content: space-between;
+  background: rgba(255,255,255,0.15);
+  border-radius: 12px; padding: 14px 18px;
+  font-size: 16px; color: #fff;
+}
+.status-item .product { font-weight: 700; color: #fff; min-width: 200px; }
+.status-item .detail { flex: 1; text-align: left; color: #eee; padding: 0 10px; }
+.status-item .mark { font-size: 20px; min-width: 28px; text-align: right; }
+
+/* ===== Criteria Reference ===== */
+.criteria-block { margin-bottom: 18px; }
+.criteria-block h3 { color: #fff; margin-bottom: 8px; font-size: 18px; font-weight: 700; }
+.criteria-block ul { list-style: none; padding-left: 0; }
+.criteria-block li {
+  background: rgba(255,255,255,0.15);
+  margin: 4px 0; padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 15px;
+  display: flex; align-items: center;
+}
+.criteria-block .mark {
+  display: inline-block;
+  width: 24px; text-align: center;
+  margin-right: 8px; font-size: 16px;
+}
+
+/* ===== Modal ===== */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.3s ease-in-out;
+}
+.modal-content {
+  background: #27ae60;
   padding: 20px;
   border-radius: 12px;
-  margin-top: 25px;
-}
-
-.criteria-item {
-  margin-bottom: 12px;
-}
-
-.criteria-item strong {
-  display: block;
-  margin-bottom: 5px;
-  font-size: 16px;
-}
-
-.criteria-badge {
-  display: inline-block;
-  padding: 4px 8px;
-  border-radius: 6px;
-  margin: 2px 5px 2px 0;
-  font-size: 13px;
-  font-weight: 600;
-}
-
-.criteria-badge.red {
-  background: #e74c3c;
+  width: 400px;
   color: #fff;
+  animation: slideDown 0.4s ease;
 }
-
-.criteria-badge.green {
-  background: #2ecc71;
-  color: #fff;
+.close {
+  float: right;
+  font-size: 22px;
+  cursor: pointer;
 }
-
-.criteria-badge.orange {
-  background: #f39c12;
-  color: #fff;
-}
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideDown { from { transform: translateY(-40px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
