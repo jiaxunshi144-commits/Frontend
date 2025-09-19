@@ -2,12 +2,21 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
+/* ===== Body 整体布局 ===== */
 body {
   font-family: "Montserrat", sans-serif;
   background: #2ecc71; /* 果绿色背景 */
   color: #fff;
   line-height: 1.6;
-  padding: 20px;
+  padding: 20px 60px;
+  display: flex;
+  justify-content: center;
+}
+
+/* 限制内容区宽度，避免太宽贴边 */
+.container {
+  width: 100%;
+  max-width: 1200px;
 }
 
 /* ===== Header & Nav ===== */
@@ -43,14 +52,17 @@ nav a:hover { background: #27ae60; color: #fff; }
   color: #fff;
 }
 
-/* ===== Steps ===== */
+/* ===== Step Circle (方案二) ===== */
 .step-circle {
   display: inline-block;
-  width: 30px; height: 30px; line-height: 30px;
+  width: 36px; height: 36px; line-height: 36px;
   border-radius: 50%;
-  background: #fff; color: #27ae60;
+  background: #fff;
+  border: 3px solid #27ae60;
+  color: #27ae60;
   text-align: center;
-  font-size: 16px; font-weight: bold;
+  font-size: 18px;
+  font-weight: bold;
   margin-right: 8px;
 }
 
@@ -136,4 +148,4 @@ button:hover { background: #27ae60; color: #fff; }
   cursor: pointer;
 }
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-@keyframes slideDown { from { transform: translateY(-40px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+@keyframes slideDown { from { transform: translateY(-40px); opacity: 0; } to { transform: translateY(0);
