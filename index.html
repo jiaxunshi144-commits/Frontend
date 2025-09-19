@@ -10,7 +10,7 @@
 </head>
 <body>
   <header>
-    <h1>🌱 Enterprise Dashboard</h1>
+    <h1>Enterprise Dashboard</h1>
     <nav>
       <a href="index.html">Enterprise</a> |
       <a href="page2.html">Auditor</a>
@@ -32,20 +32,16 @@
     <div id="dataFeed" class="console">[No data yet]</div>
   </section>
 
-  <!-- ② ESG Report Upload -->
+  <!-- ② Upload Report -->
   <section class="card">
     <h2><span class="step-circle">②</span> Upload Report (Enterprise)</h2>
-    <input type="file" id="fileInput" />
-    <button id="uploadButton">Upload & Register</button>
-    <pre id="uploadResult"></pre>
+    <button onclick="openModal('uploadModal')">Open Upload Window</button>
   </section>
 
   <!-- ③ Report Status -->
   <section class="card">
     <h2><span class="step-circle">③</span> Check Report Status</h2>
-    <input type="text" id="statusHash" placeholder="Enter file hash (0x...)" />
-    <button id="checkStatus">Check Status</button>
-    <pre id="statusResult"></pre>
+    <button onclick="openModal('statusModal')">Open Status Window</button>
   </section>
 
   <!-- ④ Token & Finance -->
@@ -133,6 +129,30 @@
       </ul>
     </div>
   </section>
+
+  <!-- Upload Modal -->
+  <div id="uploadModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('uploadModal')">&times;</span>
+      <h3>Upload Report</h3>
+      <input type="file" id="fileInput" />
+      <button id="uploadButton">Upload & Register</button>
+      <pre id="uploadResult"></pre>
+      <button id="copyUploadHash" style="display:none;">📋 Copy Hash</button>
+    </div>
+  </div>
+
+  <!-- Status Modal -->
+  <div id="statusModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('statusModal')">&times;</span>
+      <h3>Check Report Status</h3>
+      <input type="text" id="statusHash" placeholder="Enter file hash (0x...)" />
+      <button id="checkStatus">Check Status</button>
+      <pre id="statusResult"></pre>
+      <button id="copyStatusHash" style="display:none;">📋 Copy Hash</button>
+    </div>
+  </div>
 
   <!-- enterprise logic -->
   <script src="app.js"></script>
