@@ -1,10 +1,153 @@
+/* ====== Base Reset ====== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  font-family: sans-serif;
-  max-width: 600px;
-  margin: auto;
+  font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+  background: #f5f7fa;
+  color: #2c3e50;
+  line-height: 1.6;
   padding: 20px;
 }
-h1 { color: green; }
-button { margin: 5px; padding: 8px; cursor: pointer; }
-input { width: 100%; padding: 6px; margin: 5px 0; }
-pre { background: #f4f4f4; padding: 10px; }
+
+/* ====== Header & Nav ====== */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+header h1 {
+  font-size: 28px;
+  color: #1C7C54;
+}
+
+nav a {
+  margin-left: 15px;
+  text-decoration: none;
+  font-weight: 600;
+  color: #3498db;
+}
+
+nav a:hover {
+  color: #1C7C54;
+}
+
+/* ====== Card ====== */
+.card, section {
+  background: #fff;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 14px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+/* ====== Steps ====== */
+.step-circle {
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  line-height: 28px;
+  border-radius: 50%;
+  background: #1C7C54;
+  color: #fff;
+  text-align: center;
+  font-size: 15px;
+  margin-right: 8px;
+}
+
+/* ====== Buttons ====== */
+button {
+  margin: 6px;
+  padding: 10px 16px;
+  font-size: 15px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  background: #3498db;
+  color: #fff;
+  font-weight: 600;
+  transition: all 0.2s ease-in-out;
+}
+
+button:hover {
+  background: #1C7C54;
+}
+
+/* ====== Console (IoT feed, results) ====== */
+.console, pre, #resultBox {
+  background: #1e1e1e;
+  color: #d4d4d4;
+  font-family: "Fira Code", ui-monospace, monospace;
+  padding: 14px;
+  border-radius: 8px;
+  margin-top: 10px;
+  max-height: 350px;
+  overflow-y: auto;
+  white-space: pre-wrap;
+  font-size: 14px;
+}
+
+/* ====== Finance Status ====== */
+.finance-status {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.status-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f9f9f9;
+  border-radius: 10px;
+  padding: 14px 18px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  font-size: 16px;
+}
+
+.status-item .product {
+  font-weight: 700;
+  color: #1C7C54;
+  min-width: 200px;
+}
+
+.status-item .detail {
+  flex: 1;
+  text-align: left;
+  color: #444;
+  padding: 0 10px;
+}
+
+.status-item .mark {
+  font-size: 20px;
+  min-width: 28px;
+  text-align: right;
+}
+
+/* ====== Criteria Reference ====== */
+.criteria-list {
+  list-style: none;
+  padding-left: 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #444;
+}
+
+.criteria-list li {
+  margin: 6px 0;
+  background: #f9f9f9;
+  padding: 8px 12px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.criteria-list strong {
+  color: #1C7C54;
+  margin-right: 6px;
+}
